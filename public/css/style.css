@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply bg-amber-600 text-4xl font-bold p-6 rounded-lg text-white
+    }
+    .nav-item {
+        @apply flex items-center h-10 rounded px-3 text-sm text-prototurk font-medium hover:bg-gray-100 transition-colors dark:text-gray-300 dark:hover:bg-gray-800
+    }
+    .nav-item.active {
+        @apply bg-prototurk text-white
+    }
+    .modal {
+        @apply fixed inset-0 bg-gray-900 bg-opacity-70 invisible flex items-center justify-center z-20
+    }
+    .modal.active {
+        @apply visible opacity-100 transition-opacity
+    }
+    .modal-content {
+        @apply p-10 max-w-full min-w-[365px] bg-white rounded relative dark:bg-gray-800 dark:text-gray-400;
+    }
+    .dropdown-item {
+        @apply h-7 px-2 hover:bg-gray-200 transition-colors
+    }
+    .sidebar {
+        @apply flex flex-col h-full w-60 border-r p-3 divide-y divide-solid divide-gray-200 scale-75 lg:scale-100 dark:divide-gray-800 dark:border-gray-800 flex-shrink-0 absolute lg:relative inset-0 opacity-0 invisible lg:opacity-100 lg:visible
+    }
+    .sidebar.active {
+        @apply opacity-100 z-20 w-full bg-white dark:bg-gray-800 top-15 visible transition-opacity scale-100
+    }
+}
+
+@layer base {
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+    html {
+        font-family: 'Open Sans', sans-serif;
+    }
+}

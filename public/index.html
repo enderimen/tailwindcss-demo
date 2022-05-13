@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Tutorial</title>
+    <link href="./css/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-white h-full flex flex-col dark:bg-gray-900">
+    <header class="w-full h-15 flex-shrink-0 border-b flex justify-between items-center px-5 dark:border-gray-800">
+        <button onclick="sidebar()" class="lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" class="fill-current text-gray-400"><path d="M5 30V27.208H35V30ZM5 21.375V18.625H35V21.375ZM5 12.792V10H35V12.792Z"/></svg>
+        </button>
+        <a href="#" class="text-2xl font-medium inline-flex items-center text-prototurk dark:text-white">
+            logo
+            <span class="text-sm text-gray-400 ml-2">v1.0.0</span>
+        </a>
+        <form class="w-1/3 hidden lg:block">
+            <input type="text" placeholder="Makalelerde ara" class="w-full h-10 bg-white-200 px-3 rounded placeholder-gray-400 border outline-gray-400">
+        </form>
+        
+        <div class="group relative">
+            <button class="flex items-center h-10 rounded text-sm">
+                <img src="https://avatars.githubusercontent.com/u/16656350?s=40&v=4" alt="" height="24" width="24" class="rounded-full">
+                <span class="dark:text-gray-400 hidden lg:block ml-2">enderimen</span>
+                <span class="lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="fill-current text-gray-300"><path d="M12 15 7 10H17Z"/></svg>
+                </span>
+            </button>
+
+            <div class="absolute top-full right-0 w-44 px-2 py-3 space-y-1 bg-gray-300 flex flex-col z-20 invisible opacity-0 group-focus-within:mt-[10px] group-focus-within:visible group-focus-within:opacity-100">
+                <a href="" class="dropdown-item">Profil</a>
+                <a href="" class="dropdown-item">Profil DÜzenle</a>
+                <a href="" class="dropdown-item">Takipçiler</a>
+                <a href="" class="dropdown-item">Sorular</a>
+                <a href="" class="dropdown-item">Cevaplar</a>
+                <a href="" class="dropdown-item">Çıkış Yap</a>
+                <a href="javascript:;" onclick="modal('loginModal')" class="bg-prototurk text-white h-10 inline-flex items-center px-[18px] rounded">Modal</a>
+            </div>
+        </div>
+    </header>
+    <main class="calc-h-full-15 flex-auto flex">
+        <aside id="sidebar" class="sidebar">
+            <nav class="mb-3">
+                <a href="" class="nav-item active">Anasayfa</a>
+                <a href="" class="nav-item">Akış</a>
+                <a href="" class="nav-item">Keşfet</a>
+                <a href="" class="nav-item">Makaleler</a>
+                <a href="" class="nav-item">Soru & Cevap</a>
+            </nav>
+
+            <nav class="mb-3 pt-3">
+                <a href="" class="nav-item">HTML</a>
+                <a href="" class="nav-item">CSS</a>
+                <a href="" class="nav-item">JavaScript</a>
+                <a href="" class="nav-item">Tailwind CSS</a>
+                <a href="" class="nav-item">JIT</a>
+            </nav>
+
+            <div class="flex flex-col mt-auto pt-3">
+                <button onclick="darkMode()" class="h-8 rounded px-3 text-sm bg-gray-700 hover:bg-gray-800 transition-colors text-white text-center flex items-center dark:bg-white">  
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="fill-current text-white dark:text-black mr-2"><path d="M14 22Q11.95 22 10.125 21.212Q8.3 20.425 6.938 19.062Q5.575 17.7 4.787 15.875Q4 14.05 4 12Q4 9.925 4.787 8.113Q5.575 6.3 6.938 4.938Q8.3 3.575 10.125 2.787Q11.95 2 14 2Q15.35 2 16.625 2.35Q17.9 2.7 19 3.35Q16.725 4.675 15.363 6.937Q14 9.2 14 12Q14 14.8 15.363 17.062Q16.725 19.325 19 20.65Q17.9 21.3 16.625 21.65Q15.35 22 14 22ZM14 20Q14.275 20 14.525 20Q14.775 20 15 19.95Q13.575 18.3 12.788 16.262Q12 14.225 12 12Q12 9.775 12.788 7.737Q13.575 5.7 15 4.05Q14.775 4 14.525 4Q14.275 4 14 4Q10.675 4 8.338 6.337Q6 8.675 6 12Q6 15.325 8.338 17.663Q10.675 20 14 20ZM10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Q10.5 12 10.5 12Z"/></svg>
+                    <span class="hidden dark:inline-block bg-white text-black">Koyu Mod</span>
+                    <span class="inline-block dark:hidden">Koyu Mod</span>
+                </button>
+            </div>
+        </aside>
+        <section class="flex-auto py-6 px-4 md:px-10 overflow-auto">
+            <div class="mx-auto max-w-screen-xl overflow-y-scroll">
+                <h1 class="font-medium text-3xl leading-6 mb-5 dark:text-gray-400">Hello Tailwind CSS</h1>
+                <p class="dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae molestiae omnis ea quos id modi expedita deleniti porro odit temporibus provident qui nostrum eius esse facilis optio totam, nulla earum?</p>
+                <p class="dark:text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, ea ullam architecto autem laudantium, alias eius aliquid nostrum maxime dolore iusto porro est sint possimus dicta! Modi aliquid ab laboriosam rem quae. Officia mollitia illum non nisi beatae molestias quae voluptatem explicabo facere nemo voluptates quis fugiat ullam, deserunt obcaecati molestiae provident eveniet rerum quia nobis esse necessitatibus. Saepe neque dolores suscipit quisquam praesentium! Sunt dolorem error laborum asperiores esse, qui fugit in quos eligendi eveniet aliquid quidem ad reprehenderit nobis, sed repellendus cum minima! Consectetur, perspiciatis? Mollitia, minus quos. Rerum sint consectetur perferendis voluptatum. Eligendi temporibus voluptas doloremque non qui, dicta debitis minima nemo soluta asperiores et? Dolore voluptates illum consequuntur praesentium ut dolores necessitatibus sint corporis voluptate. Placeat quasi natus cumque velit assumenda quia officiis fugit quas, minus magnam saepe maxime laboriosam! Aperiam tenetur, quam commodi eos esse pariatur repellendus recusandae non soluta maxime vero ipsam hic ratione, debitis doloribus enim quae, quo in. Sed ea corrupti ad rerum nemo est officia magnam, sapiente omnis dicta cum, illo voluptates laudantium sequi, eligendi quis ipsa enim magni beatae reiciendis aliquid. Optio laboriosam incidunt magnam rem accusamus nostrum voluptatum aliquam, dolorem recusandae, fugit dolorum ducimus illum commodi in aperiam sit omnis animi odio facere libero obcaecati nam provident distinctio iste! Inventore, dolores nam. Quas quia suscipit id nam exercitationem molestias iure incidunt quisquam similique voluptates tempore minima quos sit impedit, quibusdam dolor recusandae repellat delectus nostrum deleniti magnam voluptatem. Deleniti itaque in qui ducimus autem aliquid cumque nobis! Quos earum facere sunt laudantium nemo quia aperiam ut excepturi numquam eligendi sit alias amet, ipsum est officiis reprehenderit recusandae aspernatur qui beatae, et sint? Laudantium hic unde eaque magni quo dolor dolorum, nisi optio eos cupiditate ea doloribus pariatur ullam in quibusdam! A nulla maxime dolorem delectus, nam nisi dolor architecto aliquid quia in exercitationem quidem earum voluptas fugiat quisquam laboriosam ab est minima. Doloremque eius consequatur soluta facilis eaque, ex maiores unde reiciendis rerum tenetur quasi saepe quia laudantium, ut repellat accusamus placeat dolor. Officia consequuntur deserunt officiis. Velit voluptatum voluptatem voluptatibus ipsa animi explicabo alias est ea? Distinctio repellat maiores soluta ullam recusandae, voluptatum aliquam accusamus dolorem saepe cum eligendi sapiente nesciunt modi veniam minima harum voluptates tempore rerum repudiandae. Quod doloremque debitis accusantium possimus excepturi aspernatur voluptatum error quasi culpa reiciendis ad, temporibus et enim fugit incidunt odio asperiores, velit libero at minus odit neque suscipit mollitia voluptatibus. Voluptatibus aspernatur esse iusto, cum veniam at tempore cupiditate alias accusantium eaque iste voluptates dolorem dolor aliquam, praesentium aut quam quisquam consequatur recusandae dicta dolores quas nisi quidem delectus. Aliquid ipsam voluptatum, ut maxime quisquam doloribus necessitatibus saepe aut omnis debitis magni sapiente quod odit quidem, provident ea facilis repudiandae? Quo error aperiam alias placeat. Eius praesentium reiciendis doloribus et voluptatibus. Tenetur culpa excepturi nesciunt fugit officiis aliquid, architecto accusamus quo perspiciatis, nam esse amet accusantium sapiente molestiae eaque! Cupiditate ut ab, corporis rerum facere illo illum esse ipsa nisi harum numquam velit nemo excepturi. Ut sint consequuntur expedita vel distinctio ad veritatis, temporibus, voluptatibus enim eum odio hic aperiam dignissimos aut reprehenderit perferendis numquam beatae magnam. Aperiam ad tenetur cupiditate molestiae. Autem totam ducimus veniam ipsum voluptatibus quam animi reiciendis, nostrum dolorem similique error vitae alias commodi enim explicabo odio. Omnis exercitationem, ex ut, temporibus amet ratione rerum nostrum iusto dolorum ullam animi accusamus sapiente earum recusandae atque, facere ab officia alias provident quae voluptas dolor sed est? Assumenda, optio odio! Sed odio perspiciatis reprehenderit pariatur! Eum, aut facere libero fugiat saepe voluptate in nesciunt atque animi, nulla commodi voluptatem nostrum. Distinctio similique numquam quibusdam dolorem suscipit fugit nihil esse amet fugiat molestias! Corrupti repellendus recusandae, inventore voluptatum in error molestiae et at minus provident laboriosam nesciunt veritatis eligendi dolor est aut accusamus expedita impedit, a, fugit vero voluptas? Odit, ut culpa! Officiis, laboriosam dignissimos cumque porro nemo neque saepe odit magnam minima expedita, voluptates repudiandae repellendus ab adipisci illum rerum ullam. Ipsa in recusandae quia iste totam magni iusto odio est soluta sapiente repudiandae repellendus, iure debitis voluptatibus facere! Facere sunt quas quae, rerum ipsam magnam. Maxime quo deserunt ab sunt alias deleniti adipisci dolorum id, itaque natus, sed amet magnam culpa. Distinctio aliquid quis totam nesciunt soluta repudiandae provident sint quas adipisci eum illum ipsam quasi, harum fuga aut consectetur nulla assumenda voluptates vel qui laborum nemo. Quia rerum sapiente quaerat vel eligendi voluptatem iusto consequatur ullam distinctio incidunt praesentium consectetur, asperiores architecto? Error explicabo repudiandae quibusdam sunt provident est? Voluptas sunt quibusdam vitae maxime rem mollitia, voluptatum labore ipsum quod iusto harum ad? Temporibus laborum, labore voluptatibus id consequatur ipsum esse doloremque cupiditate deleniti natus, quidem libero saepe nihil molestiae, sit nesciunt nulla similique maxime ipsa possimus optio culpa enim beatae. Mollitia qui libero ipsam temporibus fugit, accusantium sint commodi, veritatis tempora obcaecati sit aut delectus nihil ipsa vero quod dicta odit ipsum cum culpa! Placeat, animi delectus. Libero laudantium eaque itaque. Possimus pariatur, impedit blanditiis iure quidem ex explicabo nam unde voluptas nemo excepturi molestiae nesciunt perspiciatis quod sequi eligendi minima. Fugiat cupiditate a dicta repellat quidem natus magnam vitae nam numquam officia veniam quibusdam nulla quis est totam accusamus itaque, id deleniti sed, dignissimos consequatur inventore! Tenetur facilis quos ipsa architecto porro molestiae, omnis minus doloremque autem et sapiente rem esse, reiciendis recusandae odio similique. Exercitationem quas dolore cupiditate. Velit inventore fugiat sapiente nisi maxime sequi praesentium illo quia delectus repellat nostrum quisquam blanditiis, perspiciatis libero excepturi? Vel unde atque omnis cupiditate fugit placeat voluptate consequuntur iure. Quo cupiditate a enim aliquid hic amet laudantium harum, ut explicabo nobis neque, odio, nulla blanditiis. Tempore tenetur neque delectus, doloribus assumenda earum maxime velit aperiam ea cupiditate voluptatum dolor asperiores eum dolorem facere vel, nam laborum. Tenetur porro quae ipsum quaerat, sint nobis commodi laborum doloremque quis culpa quos maxime ducimus sequi incidunt architecto magni ratione similique ipsam? Fugiat possimus quaerat delectus amet molestiae corporis? Culpa, vel illo. Neque voluptates maiores iste dolores, ab unde asperiores impedit repellat expedita soluta esse omnis. Omnis alias adipisci iure.</p>
+            </div>
+
+            <div class="flex lg:grid overflow-x-scroll grid-cols-10 gap-7 lg:gap-3 mt-5 mb-10">
+                <article class="col-span-5 md:col-span-3 lg:col-span-2 rounded border dark:border-gray-800">
+                    <a href="" class="border flex flex-col px-4 py-7 items-center group">
+                        <span class="w-24 mb-4 h-24 border border-red-500 rounded-full grid place-items-center relative">
+                            <span class="absolute -top-2 -right-2 rounded-full h-24 w-24 scale-90 bg-black bg-opacity-10 -z-1"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="fill-current"><path d="M24 41.95 21.95 40.1Q13.8 32.65 8.9 27.1Q4 21.55 4 15.85Q4 11.35 7.025 8.325Q10.05 5.3 14.5 5.3Q17.05 5.3 19.55 6.525Q22.05 7.75 24 10.55Q26.2 7.75 28.55 6.525Q30.9 5.3 33.5 5.3Q37.95 5.3 40.975 8.325Q44 11.35 44 15.85Q44 21.55 39.1 27.1Q34.2 32.65 26.05 40.1ZM24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15ZM24 38Q31.6 31 36.3 25.85Q41 20.7 41 15.85Q41 12.55 38.875 10.425Q36.75 8.3 33.5 8.3Q31 8.3 28.8 9.85Q26.6 11.4 25.2 14.3H22.75Q21.4 11.4 19.175 9.85Q16.95 8.3 14.5 8.3Q11.2 8.3 9.1 10.425Q7 12.55 7 15.85Q7 20.7 11.7 25.85Q16.4 31 24 38Z"/></svg>
+                        </span>
+                        <span class="h-8 text-white text-lg inline-flex items-center bg-black px-3 py-2 rounded group-hover:bg-green-900 group-hover:text-white transition-colors">
+                            HTML
+                        </span>
+                    </a>
+                </article>
+                <article class="col-span-5 md:col-span-3 lg:col-span-2 rounded border dark:border-gray-800">
+                    <a href="" class="border flex flex-col px-4 py-7 items-center group">
+                        <span class="w-24 mb-4 h-24 border border-red-500 rounded-full grid place-items-center relative">
+                            <span class="absolute -top-2 -right-2 rounded-full h-24 w-24 scale-90 bg-black bg-opacity-10 -z-1"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="fill-current"><path d="M24 41.95 21.95 40.1Q13.8 32.65 8.9 27.1Q4 21.55 4 15.85Q4 11.35 7.025 8.325Q10.05 5.3 14.5 5.3Q17.05 5.3 19.55 6.525Q22.05 7.75 24 10.55Q26.2 7.75 28.55 6.525Q30.9 5.3 33.5 5.3Q37.95 5.3 40.975 8.325Q44 11.35 44 15.85Q44 21.55 39.1 27.1Q34.2 32.65 26.05 40.1ZM24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15ZM24 38Q31.6 31 36.3 25.85Q41 20.7 41 15.85Q41 12.55 38.875 10.425Q36.75 8.3 33.5 8.3Q31 8.3 28.8 9.85Q26.6 11.4 25.2 14.3H22.75Q21.4 11.4 19.175 9.85Q16.95 8.3 14.5 8.3Q11.2 8.3 9.1 10.425Q7 12.55 7 15.85Q7 20.7 11.7 25.85Q16.4 31 24 38Z"/></svg>
+                        </span>
+                        <span class="h-8 text-white text-lg inline-flex items-center bg-black px-3 py-2 rounded group-hover:bg-green-900 group-hover:text-white transition-colors">
+                            HTML
+                        </span>
+                    </a>
+                </article>
+                <article class="col-span-5 md:col-span-3 lg:col-span-2 rounded border dark:border-gray-800">
+                    <a href="" class="border flex flex-col px-4 py-7 items-center group">
+                        <span class="w-24 mb-4 h-24 border border-red-500 rounded-full grid place-items-center relative">
+                            <span class="absolute -top-2 -right-2 rounded-full h-24 w-24 scale-90 bg-black bg-opacity-10 -z-1"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="fill-current"><path d="M24 41.95 21.95 40.1Q13.8 32.65 8.9 27.1Q4 21.55 4 15.85Q4 11.35 7.025 8.325Q10.05 5.3 14.5 5.3Q17.05 5.3 19.55 6.525Q22.05 7.75 24 10.55Q26.2 7.75 28.55 6.525Q30.9 5.3 33.5 5.3Q37.95 5.3 40.975 8.325Q44 11.35 44 15.85Q44 21.55 39.1 27.1Q34.2 32.65 26.05 40.1ZM24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15ZM24 38Q31.6 31 36.3 25.85Q41 20.7 41 15.85Q41 12.55 38.875 10.425Q36.75 8.3 33.5 8.3Q31 8.3 28.8 9.85Q26.6 11.4 25.2 14.3H22.75Q21.4 11.4 19.175 9.85Q16.95 8.3 14.5 8.3Q11.2 8.3 9.1 10.425Q7 12.55 7 15.85Q7 20.7 11.7 25.85Q16.4 31 24 38Z"/></svg>
+                        </span>
+                        <span class="h-8 text-white text-lg inline-flex items-center bg-black px-3 py-2 rounded group-hover:bg-green-900 group-hover:text-white transition-colors">
+                            HTML
+                        </span>
+                    </a>
+                </article>
+                <article class="col-span-5 md:col-span-3 lg:col-span-2 rounded border dark:border-gray-800">
+                    <a href="" class="border flex flex-col px-4 py-7 items-center group">
+                        <span class="w-24 mb-4 h-24 border border-red-500 rounded-full grid place-items-center relative">
+                            <span class="absolute -top-2 -right-2 rounded-full h-24 w-24 scale-90 bg-black bg-opacity-10 -z-1"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="fill-current"><path d="M24 41.95 21.95 40.1Q13.8 32.65 8.9 27.1Q4 21.55 4 15.85Q4 11.35 7.025 8.325Q10.05 5.3 14.5 5.3Q17.05 5.3 19.55 6.525Q22.05 7.75 24 10.55Q26.2 7.75 28.55 6.525Q30.9 5.3 33.5 5.3Q37.95 5.3 40.975 8.325Q44 11.35 44 15.85Q44 21.55 39.1 27.1Q34.2 32.65 26.05 40.1ZM24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15ZM24 38Q31.6 31 36.3 25.85Q41 20.7 41 15.85Q41 12.55 38.875 10.425Q36.75 8.3 33.5 8.3Q31 8.3 28.8 9.85Q26.6 11.4 25.2 14.3H22.75Q21.4 11.4 19.175 9.85Q16.95 8.3 14.5 8.3Q11.2 8.3 9.1 10.425Q7 12.55 7 15.85Q7 20.7 11.7 25.85Q16.4 31 24 38Z"/></svg>
+                        </span>
+                        <span class="h-8 text-white text-lg inline-flex items-center bg-black px-3 py-2 rounded group-hover:bg-green-900 group-hover:text-white transition-colors">
+                            HTML
+                        </span>
+                    </a>
+                </article>
+                <article class="col-span-5 md:col-span-3 lg:col-span-2 rounded border dark:border-gray-900">
+                    <a href="" class="border flex flex-col px-4 py-7 items-center group">
+                        <span class="w-24 mb-4 h-24 border border-red-500 rounded-full grid place-items-center relative">
+                            <span class="absolute -top-2 -right-2 rounded-full h-24 w-24 scale-90 bg-black bg-opacity-10 -z-1"></span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" class="fill-current"><path d="M24 41.95 21.95 40.1Q13.8 32.65 8.9 27.1Q4 21.55 4 15.85Q4 11.35 7.025 8.325Q10.05 5.3 14.5 5.3Q17.05 5.3 19.55 6.525Q22.05 7.75 24 10.55Q26.2 7.75 28.55 6.525Q30.9 5.3 33.5 5.3Q37.95 5.3 40.975 8.325Q44 11.35 44 15.85Q44 21.55 39.1 27.1Q34.2 32.65 26.05 40.1ZM24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15Q24 23.15 24 23.15ZM24 38Q31.6 31 36.3 25.85Q41 20.7 41 15.85Q41 12.55 38.875 10.425Q36.75 8.3 33.5 8.3Q31 8.3 28.8 9.85Q26.6 11.4 25.2 14.3H22.75Q21.4 11.4 19.175 9.85Q16.95 8.3 14.5 8.3Q11.2 8.3 9.1 10.425Q7 12.55 7 15.85Q7 20.7 11.7 25.85Q16.4 31 24 38Z"/></svg>
+                        </span>
+                        <span class="h-8 text-white text-lg inline-flex items-center bg-black px-3 py-2 rounded group-hover:bg-green-900 group-hover:text-white transition-colors">
+                            HTML
+                        </span>
+                    </a>
+                </article>
+            </div>
+
+            <div class="bg-blue-500 rounded-md py-5 px-10 flex flex-col lg:flex-row items-start lg:items-center bg-gradient-to-br from-twitter to-blue-500">
+                <div class="flex items-center justify-center relative mr-5 h-20 w-20">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="fill-current text-white z-10"><path d="M7.375 16Q7.3 15.9 7.863 15.213Q8.425 14.525 9.15 13.75Q9.975 12.825 11.075 11.7Q11.275 11.4 11.637 11.3Q12 11.2 12.35 11.325Q12.475 11.375 12.575 11.45Q12.675 11.525 12.775 11.65Q12.95 11.875 12.988 12.087Q13.025 12.3 13 12.5Q12.95 12.775 12.812 12.975Q12.675 13.175 12.45 13.3Q11.075 14.125 10 14.75Q9.05 15.275 8.25 15.688Q7.45 16.1 7.375 16ZM10.75 23Q10.625 23 10.5 22.95Q10.375 22.9 10.3 22.775Q10.2 22.625 10.1 22.363Q10 22.1 10 21.75Q10 21.525 10.025 21.337Q10.05 21.15 10.1 20.95Q9.425 20.825 8.963 20.275Q8.5 19.725 8.5 19Q8.5 18.9 8.575 18.475Q6.725 17.825 5.588 16.4Q4.45 14.975 4.125 12.725Q4 12.85 3.85 12.925Q3.7 13 3.5 13Q3.125 13 2.562 12.438Q2 11.875 2 10Q2 8.275 3.013 6.887Q4.025 5.5 5 5.5Q5.325 5.5 5.412 5.787Q5.5 6.075 5.5 6.35Q6.45 5 7.888 4.125Q9.325 3.25 11.05 3.05Q11.2 2.325 11.775 1.912Q12.35 1.5 13 1.5V2.5Q13.1 2.35 13.25 2.25Q13.375 2.15 13.562 2.075Q13.75 2 14 2Q14.25 2 14.438 2.075Q14.625 2.15 14.75 2.25Q14.9 2.35 15 2.5Q14.625 2.5 14.375 2.725Q14.125 2.95 14.05 3.275Q15.4 3.625 16.55 4.425Q17.7 5.225 18.5 6.35Q18.5 6.075 18.587 5.787Q18.675 5.5 19 5.5Q19.975 5.5 20.988 6.887Q22 8.275 22 10Q22 11.875 21.438 12.438Q20.875 13 20.5 13Q20.325 13 20.163 12.938Q20 12.875 19.875 12.75Q19.525 15.25 18.163 16.738Q16.8 18.225 14.55 18.725Q14.625 19.075 14.887 19.288Q15.15 19.5 15.5 19.5H16.075Q16.25 19.5 16.375 19.6Q16.5 19.7 16.55 19.85Q16.675 20.25 16.988 20.6Q17.3 20.95 17.575 21.175Q17.775 21.35 17.763 21.587Q17.75 21.825 17.55 21.95Q17.275 22.15 16.85 22.3Q16.425 22.45 15.75 22.5Q15.625 22.5 15.5 22.45Q15.375 22.4 15.3 22.275Q15.2 22.125 15.1 21.863Q15 21.6 15 21.25Q15 21.025 15.025 20.837Q15.05 20.65 15.1 20.45Q14.5 20.325 14.088 19.9Q13.675 19.475 13.55 18.9Q13.175 18.95 12.8 18.975Q12.425 19 12 19Q11.35 19 10.738 18.938Q10.125 18.875 9.55 18.75Q9.55 18.75 9.5 19Q9.5 19.425 9.788 19.712Q10.075 20 10.5 20H11.075Q11.25 20 11.375 20.1Q11.5 20.2 11.55 20.35Q11.675 20.75 11.988 21.1Q12.3 21.45 12.575 21.675Q12.775 21.85 12.762 22.087Q12.75 22.325 12.55 22.45Q12.275 22.65 11.85 22.8Q11.425 22.95 10.75 23ZM18.75 13.225Q18.875 12.725 18.938 12.175Q19 11.625 19 11Q19 8.1 16.95 6.05Q14.9 4 12 4Q9.1 4 7.05 6.05Q5 8.1 5 11Q5 11.6 5.062 12.15Q5.125 12.7 5.25 13.2Q5.375 12.7 5.588 12.212Q5.8 11.725 6.075 11.3Q5.925 10.95 5.838 10.562Q5.75 10.175 5.75 9.75Q5.75 8.175 6.838 7.087Q7.925 6 9.5 6Q10.225 6 10.863 6.262Q11.5 6.525 12 6.975Q12.5 6.525 13.137 6.262Q13.775 6 14.5 6Q16.075 6 17.163 7.087Q18.25 8.175 18.25 9.75Q18.25 10.175 18.163 10.562Q18.075 10.95 17.9 11.3Q18.175 11.725 18.4 12.212Q18.625 12.7 18.75 13.225ZM12 18Q14.175 18 15.663 17.325Q17.15 16.65 17.975 15.3Q17.975 15.225 17.988 15.15Q18 15.075 18 15Q18 14.25 17.825 13.55Q17.65 12.85 17.3 12.225Q16.775 12.8 16.062 13.15Q15.35 13.5 14.5 13.5Q14.3 13.5 14.1 13.475Q13.9 13.45 13.7 13.4Q13.825 13.225 13.888 13.037Q13.95 12.85 13.975 12.65Q14 12.575 14 12.45Q14.125 12.475 14.25 12.488Q14.375 12.5 14.5 12.5Q15.65 12.5 16.45 11.7Q17.25 10.9 17.25 9.75Q17.25 8.6 16.45 7.8Q15.65 7 14.5 7Q14 7 13.525 7.188Q13.05 7.375 12.675 7.725L12 8.325L11.325 7.725Q10.95 7.375 10.475 7.188Q10 7 9.5 7Q8.35 7 7.55 7.8Q6.75 8.6 6.75 9.75Q6.75 10.775 7.388 11.512Q8.025 12.25 8.975 12.45L8.225 13.275Q7.775 13.1 7.388 12.837Q7 12.575 6.7 12.225Q6.35 12.85 6.175 13.55Q6 14.25 6 15V15.25Q6.85 16.6 8.35 17.3Q9.85 18 12 18ZM14.5 11.5Q13.875 11.5 13.438 10.988Q13 10.475 13 9.75Q13 9.025 13.438 8.512Q13.875 8 14.5 8Q15.125 8 15.562 8.512Q16 9.025 16 9.75Q16 10.475 15.562 10.988Q15.125 11.5 14.5 11.5ZM14.875 9.25Q15.05 9.25 15.15 9.137Q15.25 9.025 15.25 8.875Q15.25 8.725 15.137 8.613Q15.025 8.5 14.875 8.5Q14.7 8.5 14.6 8.613Q14.5 8.725 14.5 8.875Q14.5 9.05 14.613 9.15Q14.725 9.25 14.875 9.25ZM9.5 11.5Q8.875 11.5 8.438 10.988Q8 10.475 8 9.75Q8 9.025 8.438 8.512Q8.875 8 9.5 8Q10.125 8 10.562 8.512Q11 9.025 11 9.75Q11 10.475 10.562 10.988Q10.125 11.5 9.5 11.5ZM9.875 9.25Q10.05 9.25 10.15 9.137Q10.25 9.025 10.25 8.875Q10.25 8.725 10.137 8.613Q10.025 8.5 9.875 8.5Q9.7 8.5 9.6 8.613Q9.5 8.725 9.5 8.875Q9.5 9.05 9.613 9.15Q9.725 9.25 9.875 9.25Z"/></svg>
+                    <span class="inline-block rounded-full bg-twitter w-12 h-12 absolute top-3 right-2"></span>
+                </div>
+                <div>
+                    <p class="text-xl font-medium text-white mb-1">Twitter'da <strong>@prototurkcom</strong> hesabını takip etmeyi unutma!</p>
+                    <p class="text-base text-white opacity-70 mb-4">Hazırladığımız son videolardan anında haberdar olmak için twitter hesabımızı takip etmeyi unutma!</p>
+                    <a href="" class="py-1 px-6 bg-white rounded">Takip Et</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="inline-block absolute right-4 top-4 z-10">
+                <svg onclick="modal('loginModal')" class="fill-current hover:cursor-pointer dark:text-white" xmlns="http://www.w3.org/2000/svg" height="32" width="32"><path d="M10.458 31.458 8.542 29.542 18.042 20 8.542 10.458 10.458 8.542 20 18.042 29.542 8.542 31.458 10.458 21.958 20 31.458 29.542 29.542 31.458 20 21.958Z"/></svg>
+            </span>
+            <h2 class="text-xl text-center mb-8 text-twitter font-bold dark:text-gray-300">Hoş Geldiniz!</h2>
+
+            <form class="flex flex-col items-center">
+                <input type="text" placeholder="E-Posta adresinizi giriniz" class="h-10 border rounded px-2 w-2/2 mb-4">
+                <input type="password" placeholder="Şifrenizi giriniz" class="h-10 border rounded px-2 w-2/2 mb-4">
+
+                <input type="button" value="Giriş Yap" class="h-10 border rounded px-1 w-2/3 bg-blue-600 text-white hover:cursor-pointer">
+            </form>
+        </div>
+    </div>
+    <script>
+        if (localStorage.getItem('dark')) {
+            document.documentElement.classList.add('dark');    
+        }
+
+        function darkMode() {
+            document.documentElement.classList.toggle('dark');
+
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('dark', true);
+            } else {
+                localStorage.removeItem('dark');
+            }
+        }
+
+        function modal(id) {
+            document.getElementById(id).classList.toggle('active');
+        }
+
+        function sidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
